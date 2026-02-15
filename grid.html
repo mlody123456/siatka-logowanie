@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siatka 6x6</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(to bottom, #555555, #1a1a1a);
+            margin: 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(6, 100px);
+            grid-template-rows: repeat(6, 100px);
+            gap: 10px;
+        }
+
+        .grid-item {
+            width: 100px;
+            height: 100px;
+            background-color: #555555;
+            border: 2px solid #4dff91;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: #4dff91;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+        }
+
+        .grid-item:hover { background-color: #3d3d3d; }
+
+        .restart-button {
+            background: linear-gradient(to bottom, #5d9c66, #306b39);
+            border: 2px solid #000;
+            padding: 12px 24px;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.4);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="restart-button" class="restart-button" onclick="restartGrid()">Restart</button>
+    <div class="grid-container" id="grid-container"></div>
+
+    <script>
+        // Funkcja sprawdzająca logowanie
+        if (localStorage.getItem("loggedIn") !== "true") {
+            window.location.href = "login.html"; // Jeśli użytkownik nie jest zalogowany, przekieruj na stronę logowania
+        }
+
+        // Funkcja wyświetlania siatki
+        function showGrid() {
+            const gridContainer = document.getElementById("grid-container");
+            for (let i = 0; i < 36; i++) {
+                const cell = document.createElement("div");
+                cell.classList.add("grid-item");
+                gridContainer.appendChild(cell);
+            }
+        }
+        showGrid(); // Pokazanie siatki
+
+        // Funkcja restartu siatki
+        function restartGrid() {
+            const gridContainer = document.getElementById("grid-container");
+            gridContainer.innerHTML = ''; // Usunięcie wszystkich komórek
+            showGrid(); // Ponowne wyświetlenie siatki
+        }
+    </script>
+</body>
+</html>
