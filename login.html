@@ -15,7 +15,6 @@
             background: linear-gradient(to bottom, #555555, #1a1a1a);
             margin: 0;
         }
-
         .login-container {
             background: rgba(0, 0, 0, 0.8);
             color: white;
@@ -27,7 +26,6 @@
             width: 300px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
         }
-
         .login-container input {
             margin: 8px 0;
             padding: 10px;
@@ -36,7 +34,6 @@
             border: 1px solid #ccc;
             font-size: 14px;
         }
-
         .login-button {
             background-color: #4CAF50;
             color: white;
@@ -47,11 +44,9 @@
             cursor: pointer;
             width: 100%;
         }
-
         .login-button:hover {
             background-color: #45a049;
         }
-
         .error-message {
             color: red;
             font-size: 14px;
@@ -71,11 +66,10 @@
     </div>
 
     <script>
-        // Przechowywanie danych logowania
+        // Ustawienia logowania
         const storedUsername = "123";
         const storedPassword = "123";
 
-        // Formularz logowania
         document.getElementById("login-form").addEventListener("submit", function(e) {
             e.preventDefault(); // Zapobiega przeładowaniu strony
 
